@@ -1,19 +1,23 @@
 {
-  "name": "gotxiko-cli",
-  "module": "index.ts",
-  "type": "module",
-  "private": true,
-  "bin": {
-    "gcli": "./index.ts"
-  },
-  "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5"
-  },
-  "dependencies": {
-    "@types/yargs": "^17.0.33",
-    "yargs": "^18.0.0"
-  }
+    "name": "gotxiko-cli",
+    "module": "index.ts",
+    "type": "module",
+    "private": true,
+    "bin": {
+        "gcli": "./index.ts"
+    },
+    "scripts": {
+        "format": "bunx prettier . --write"
+    },
+    "devDependencies": {
+        "@types/bun": "latest",
+        "prettier": "3.6.2"
+    },
+    "peerDependencies": {
+        "typescript": "^5"
+    },
+    "dependencies": {
+        "@types/yargs": "^17.0.33",
+        "yargs": "^18.0.0"
+    }
 }
