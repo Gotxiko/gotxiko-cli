@@ -1,0 +1,6 @@
+# Example URLs for SSL checking
+https://google.com
+https://github.com
+https://stackoverflow.com
+# https://example.com (commented out)
+https://httpbin.org
