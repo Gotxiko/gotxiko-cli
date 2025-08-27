@@ -29,8 +29,8 @@ export function parseJSONUrls(fileContent: string): string[] {
 export function parseTextUrls(fileContent: string): string[] {
     return fileContent
         .split("\n")
-        .map(line => line.trim())
-        .filter(line => line && !line.startsWith("#")); // Ignore empty lines and comments
+        .map((line) => line.trim())
+        .filter((line) => line && !line.startsWith("#")); // Ignore empty lines and comments
 }
 
 /**
@@ -73,9 +73,7 @@ export async function handleSSLCheck(argv: any) {
     try {
         const urls = await getUrls(argv);
 
-        const { stdout, stderr } = await execAsync(
-            `${sslCheckScript} ${urls.map((url) => `"${url}"`).join(" ")}`,
-        );
+        const { stdout, stderr } = await execAsync(`${sslCheckScript} ${urls.map((url) => `"${url}"`).join(" ")}`);
 
         if (stdout) console.log(stdout.trim());
         if (stderr) console.error(stderr.trim());
