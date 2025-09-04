@@ -6,8 +6,86 @@ import { handleSSLCheck } from "./handlers/sslcheck";
 import { handleCurlInfo } from "./handlers/curlinfo";
 import { handleGitSwitch } from "./handlers/gitswitch";
 
+const argv = process.argv.slice(2);
+
+// If no arguments provided, show help
+if (argv.length === 0) {
+    yargs(hideBin(process.argv))
+        .scriptName("gcli")
+        .usage('Usage: $0 <command> [options]')
+        .command(
+            "sslcheck [urls..]",
+            "Check SSL certificates for given URLs or from a file",
+            {
+                urls: {
+                    describe: "URLs to check SSL certificates for (can also use --file)",
+                    type: "string",
+                    array: true,
+                },
+                file: {
+                    describe: "Path to file containing URLs (JSON array or text file with one URL per line)",
+                    type: "string",
+                    alias: "f",
+                },
+                format: {
+                    describe: "Format of the input file",
+                    type: "string",
+                    choices: ["json", "txt"],
+                    default: "txt",
+                    alias: "F",
+                },
+            },
+            handleSSLCheck,
+        )
+        .command(
+            "curlinfo [urls..]",
+            "Get curl info including redirects, headers, and response details for given URLs",
+            {
+                urls: {
+                    describe: "URLs to check with curl (can also use --file)",
+                    type: "string",
+                    array: true,
+                },
+                file: {
+                    describe: "Path to file containing URLs (JSON array or text file with one URL per line)",
+                    type: "string",
+                    alias: "f",
+                },
+                format: {
+                    describe: "Format of the input file",
+                    type: "string",
+                    choices: ["json", "txt"],
+                    default: "txt",
+                    alias: "F",
+                },
+            },
+            handleCurlInfo,
+        )
+        .command(
+            "gitswitch <username> <email>",
+            "Switch git user locally in the current repository (not globally)",
+            {
+                username: {
+                    describe: "Git username to set locally",
+                    type: "string",
+                    demandOption: true,
+                },
+                email: {
+                    describe: "Git email to set locally",
+                    type: "string",
+                    demandOption: true,
+                },
+            },
+            handleGitSwitch,
+        )
+        .help()
+        .showHelp();
+    process.exit(0);
+}
+
 const _argv = yargs(hideBin(process.argv))
     .scriptName("gcli")
+    .usage('Usage: $0 <command> [options]')
     .command(
         "sslcheck [urls..]",
         "Check SSL certificates for given URLs or from a file",
@@ -73,4 +151,8 @@ const _argv = yargs(hideBin(process.argv))
         },
         handleGitSwitch,
     )
-    .help().argv;
+    .help()
+    .demandCommand(0, '')
+    .showHelpOnFail(false)
+    .strict()
+    .argv;
