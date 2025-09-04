@@ -4,6 +4,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { handleSSLCheck } from "./handlers/sslcheck";
 import { handleCurlInfo } from "./handlers/curlinfo";
+import { handleGitSwitch } from "./handlers/gitswitch";
 
 const _argv = yargs(hideBin(process.argv))
     .scriptName("gcli")
@@ -54,5 +55,22 @@ const _argv = yargs(hideBin(process.argv))
             },
         },
         handleCurlInfo,
+    )
+    .command(
+        "gitswitch <username> <email>",
+        "Switch git user locally in the current repository (not globally)",
+        {
+            username: {
+                describe: "Git username to set locally",
+                type: "string",
+                demandOption: true,
+            },
+            email: {
+                describe: "Git email to set locally",
+                type: "string",
+                demandOption: true,
+            },
+        },
+        handleGitSwitch,
     )
     .help().argv;
