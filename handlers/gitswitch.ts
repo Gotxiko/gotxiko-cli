@@ -32,7 +32,7 @@ export async function handleGitSwitch(argv: any) {
         // Display the script output even if it exits with error code
         if (error.stdout) console.log(error.stdout.trim());
         if (error.stderr) console.error(error.stderr.trim());
-        
+
         // If it's our validation error, don't show the exec error
         if (error.message.includes("Both username and email are required")) {
             console.error(error.message);

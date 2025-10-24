@@ -12,7 +12,7 @@ const argv = process.argv.slice(2);
 if (argv.length === 0) {
     yargs(hideBin(process.argv))
         .scriptName("gcli")
-        .usage('Usage: $0 <command> [options]')
+        .usage("Usage: $0 <command> [options]")
         .command(
             "sslcheck [urls..]",
             "Check SSL certificates for given URLs or from a file",
@@ -85,7 +85,7 @@ if (argv.length === 0) {
 
 const _argv = yargs(hideBin(process.argv))
     .scriptName("gcli")
-    .usage('Usage: $0 <command> [options]')
+    .usage("Usage: $0 <command> [options]")
     .command(
         "sslcheck [urls..]",
         "Check SSL certificates for given URLs or from a file",
@@ -152,7 +152,6 @@ const _argv = yargs(hideBin(process.argv))
         handleGitSwitch,
     )
     .help()
-    .demandCommand(0, '')
+    .demandCommand(0, "")
     .showHelpOnFail(false)
-    .strict()
-    .argv;
+    .strict().argv;

@@ -22,13 +22,10 @@ describe("handleCurlInfo", () => {
         try {
             // Use a shorter timeout for testing
             const timeoutPromise = new Promise((_, reject) =>
-                setTimeout(() => reject(new Error("Test timeout")), 8000)
+                setTimeout(() => reject(new Error("Test timeout")), 8000),
             );
 
-            await Promise.race([
-                handleCurlInfo(argv),
-                timeoutPromise
-            ]);
+            await Promise.race([handleCurlInfo(argv), timeoutPromise]);
         } catch (error) {
             console.error(error);
         } finally {

@@ -1,13 +1,43 @@
 {
     "name": "gotxiko-cli",
-    "module": "index.ts",
+    "version": "1.0.0",
+    "description": "A small CLI tool for various useful tasks including SSL certificate checking, curl info, and git user switching",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
     "type": "module",
-    "private": true,
     "bin": {
-        "gcli": "./index.ts"
+        "gcli": "./dist/index.js"
     },
+    "files": [
+        "dist/**/*",
+        "README.md",
+        "LICENSE"
+    ],
     "scripts": {
-        "format": "bunx prettier . --write"
+        "build": "bun build index.ts --outdir dist --target bun",
+        "format": "bunx prettier . --write",
+        "prepublishOnly": "bun run build"
+    },
+    "keywords": [
+        "cli",
+        "ssl",
+        "curl",
+        "git",
+        "certificate",
+        "tool"
+    ],
+    "author": "Gotxiko",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Gotxiko/gotxiko-cli.git"
+    },
+    "homepage": "https://github.com/Gotxiko/gotxiko-cli#readme",
+    "bugs": {
+        "url": "https://github.com/Gotxiko/gotxiko-cli/issues"
+    },
+    "engines": {
+        "node": ">=18.0.0"
     },
     "devDependencies": {
         "@types/bun": "latest",
