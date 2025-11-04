@@ -4,6 +4,8 @@ A small but powerful CLI tool for various useful development tasks including SSL
 
 ## Installation
 
+https://www.npmjs.com/package/gotxiko-cli
+
 ### Using npm
 
 ```bash
