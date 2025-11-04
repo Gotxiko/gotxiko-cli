@@ -36,5 +36,9 @@ jobs:
   publish:
     needs: test
     if: startsWith(github.ref, 'refs/tags/v')
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
     uses: ./.github/workflows/publish.yml
     secrets: inherit
