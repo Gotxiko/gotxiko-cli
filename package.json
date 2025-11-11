@@ -1,6 +1,6 @@
 {
     "name": "gotxiko-cli",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "A small CLI tool for various useful tasks including SSL certificate checking, curl info, and git user switching",
     "main": "dist/index.js",
     "module": "dist/index.js",
