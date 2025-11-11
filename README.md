@@ -12,18 +12,6 @@ https://www.npmjs.com/package/gotxiko-cli
 npm install -g gotxiko-cli
 ```
 
-### Using yarn
-
-```bash
-yarn global add gotxiko-cli
-```
-
-### Using bun
-
-```bash
-bun install -g gotxiko-cli
-```
-
 ## Usage
 
 After installation, you can use the `gcli` command:
@@ -195,41 +183,6 @@ gcli curlinfo --file urls.json --format json
 - `--file, -f`: Read URLs from file
 - `--format, -F`: File format (txt/json)
 - `--help`: Show command help
-
-## Development
-
-### Prerequisites
-
-- Node.js 18+ or Bun
-- TypeScript 5+
-
-### Setup
-
-```bash
-git clone https://github.com/Gotxiko/gotxiko-cli.git
-cd gotxiko-cli
-bun install
-```
-
-### Build
-
-```bash
-bun run build
-```
-
-### Format Code
-
-```bash
-bun run format
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
